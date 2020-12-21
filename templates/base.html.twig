@@ -58,6 +58,8 @@
 
         <main role="main">
 
+            {% if block('carousel') is defined %}
+
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -112,12 +114,14 @@
                 </a>
             </div>
 
+            {% endif %}
+
 
             <!-- Marketing messaging and featurettes
             ================================================== -->
             <!-- Wrap the rest of the page in another container to center all the content. -->
 
-            <div class="container marketing">
+            <div class="container marketing mt-5" {% if block('carousel') is defined %}{% endif %}>
 
                 {% block content %}
 
