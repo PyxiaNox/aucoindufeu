@@ -9,6 +9,7 @@
         <title>{% block title %}Au Coin du Feu{% endblock %}</title>
         {% block stylesheets %}
             <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+            <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
             <!-- Bootstrap core CSS -->
             <style>
                 .bd-placeholder-img {
@@ -36,23 +37,30 @@
 
         <header>
             <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                <a class="navbar-brand" href="#">Au Coin du Feu</a>
+                <a class="navbar-brand" href="{{ path('home') }}">Au Coin du Feu</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Home
-                                <span class="sr-only">(current)</span>
-                            </a>
+                            <a class="nav-link" href="#">Nos trouvailles</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">Qui sommes-nous ?</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">Nous contacter</a>
                         </li>
                     </ul>
-                    {% if app.user %}
-                        <a href="{{ path('account') }}">Mon compte</a> | <a href="{{ path('app_logout') }}">Déconnexion</a>
-                    {% else %}
-                        <a href="{{ path('app_login') }}">Connexion</a> | <a href="{{ path('register') }}">Inscription</a>
-                    {% endif %}
+                    <div class="navbar-item-custom">
+                        {% if app.user %}
+                            <a href="{{ path('account') }}">Mon compte - {{ app.user.firstname }} -</a> | <a href="{{ path('app_logout') }}">Déconnexion</a>
+                        {% else %}
+                            <a href="{{ path('app_login') }}">Connexion</a> | <a href="{{ path('register') }}">Inscription</a>
+                        {% endif %}
+                    </div>
+
                 </div>
             </nav>
         </header>
@@ -131,14 +139,16 @@
             </div><!-- /.container -->
 
             <!-- FOOTER -->
-            <footer class="container">
+            <footer class="footer-custom">
                 <p class="float-right">
-                    <a href="#">Back to top</a>
+                    <a href="#">Revenir en haut</a>
                 </p>
-                <p>&copy; 2017-2020 Company, Inc. &middot;
-                    <a href="#">Privacy</a>
+                <p>&copy; 2020 Au Coin du Feu<br>
+                    <small>
+                    <a href="#">Mentions légales</a>
                     &middot;
-                    <a href="#">Terms</a>
+                    <a href="#">Plan du site</a>
+                    </small>
                 </p>
             </footer>
         </main>
