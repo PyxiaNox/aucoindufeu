@@ -19,7 +19,6 @@ class ProductCrudController extends AbstractCrudController
         return Product::class;
     }
 
-
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -36,7 +35,8 @@ class ProductCrudController extends AbstractCrudController
             TextField::new('editor'),
             IntegerField::new('publication_date'),
             TextareaField::new('description'),
-            MoneyField::new('price')->setCurrency('EUR'),
+            MoneyField::new('price')
+                ->setCurrency('EUR'),
             AssociationField::new('category')
         ];
     }
