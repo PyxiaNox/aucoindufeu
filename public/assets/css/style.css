@@ -6,6 +6,10 @@ body{
     color: white;
 }
 
+.cart-icon{
+    padding-left: 10px;
+}
+
 .footer-custom {
     text-align: center;
     position: absolute;
@@ -13,6 +17,7 @@ body{
     background-color: #1d2124;
     color: white;
     padding-top: 15px;
+    margin-top: 50px;
 }
 
 .product-item h5{
