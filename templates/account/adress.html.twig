@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes adresses - Au Coin du Feu{% endblock %}
+
+{% block content %}
+
+    <br>
+    <a href="{{ path('account_adress_add') }}" class="btn btn-info btn-sm float-right">Ajouter une adresse</a>
+    <h1>Mes adresses</h1>
+    Bienvenue {{ app.user.firstname }}.
+    <br>
+    C'est dans cet espace que vous pouvez gérer toutes vos adresses.
+    <hr>
+    <a href="{{ path('account') }}">Retour</a>
+    <hr>
+        {% if app.user.adresses|length == 0 %}
+        <p class="text-center">Vous n'avez pas encore ajouté d'adresse dans votre compte client.
+        <br>
+        Pour en ajouter une, cliquez <a href="{{ path('account_adress_add') }}">ici</a> ou sur le bouton "Ajouter une adresse".
+        </p>
+        {% else %}
+
+        {% endif %}
+
+{% endblock %}

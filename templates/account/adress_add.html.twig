@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout d'une adresse - Au Coin du Feu{% endblock %}
+
+{% block content %}
+
+    <br>
+    <h1>Ajout d'une adresse</h1>
+    <br>
+    <hr>
+    <a href="{{ path('account') }}">Retour</a>
+    <hr>
+    {{ form(form) }}
+
+
+{% endblock %}
