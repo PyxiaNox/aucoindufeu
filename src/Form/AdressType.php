@@ -4,7 +4,9 @@ namespace App\Form;
 
 use App\Entity\Adress;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -33,9 +35,9 @@ class AdressType extends AbstractType
                 ]
             ])
             ->add('company', TextType::class, [
-                'label' => "Nom de société (optionnel)",
+                'label' => "Nom de société",
                 'attr' => [
-                    'placeholder' => "Nom de votre société (optionnel)"
+                    'placeholder' => "Nom de votre société (facultatif)"
                 ]
             ])
             ->add('adress', TextType::class, [
@@ -56,20 +58,23 @@ class AdressType extends AbstractType
                     'placeholder' => "Votre ville"
                 ]
             ])
-            ->add('country', TextType::class, [
+            ->add('country', CountryType::class, [
                 'label' => "Pays",
                 'attr' => [
                     'placeholder' => "Votre pays"
                 ]
             ])
-            ->add('phone', TextType::class, [
+            ->add('phone', TelType::class, [
                 'label' => "Téléphone",
                 'attr' => [
                     'placeholder' => "Votre numéro de téléphone"
                 ]
             ])
             ->add('submit', SubmitType::class, [
-                'label' => "Ajouter l'adresse"
+                'label' => "Valider",
+                'attr' => [
+                    'class' => 'btn btn-info'
+                ]
             ])
         ;
     }
