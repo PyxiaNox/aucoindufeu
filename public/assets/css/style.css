@@ -48,3 +48,8 @@ body{
 .product-page-price{
     font-size: 19px;
 }
+
+.block-small{
+    max-width: 400px;
+    margin: 0 auto;
+}

@@ -50,7 +50,7 @@
         <b>Total :</b> {{ (total/100)| number_format(2) }} €
         <br>
         <br>
-        <a href="" class="btn btn-success">Valider</a>
+        <a href="{{ path('order') }}" class="btn btn-success">Valider</a>
     </div>
 
     {% else %}

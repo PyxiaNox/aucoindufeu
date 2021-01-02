@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes commandes - Au Coin du Feu{% endblock %}
+
+{% block content %}
+
+    <br>
+    <br>
+    <h2>Gestion des commandes</h2>
+    <p>Choisissez vos préférences de livraison avant de valider votre commande.</p>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            {% set formHtml %}
+                {{ form(form) }}
+            {% endset %}
+            {{ formHtml|replace({'[br]' : '<br>'})|raw }}
+            <br>
+            <b>Choisir mon transporteur</b>
+        </div>
+        <div class="col-md-6">
+            <b>Récapitulatif de ma commande</b>
+            <br>
+            <b>Validation</b>
+        </div>
+    </div>
+
+{% endblock %}
