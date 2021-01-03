@@ -53,3 +53,23 @@ body{
     max-width: 400px;
     margin: 0 auto;
 }
+
+.form-check{
+    background-color: #888888;
+    padding: 20px 65px;
+    margin-top: 7px;
+}
+
+.col-form-label{
+    font-weight: bold;
+}
+
+.order-summary{
+    background-color: #888888;
+    padding: 20px;
+    margin-top: 22px;
+}
+
+img{
+    border: #1d2124 1px;
+}
