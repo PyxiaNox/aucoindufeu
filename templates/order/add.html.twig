@@ -1,8 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mes commandes - Au Coin du Feu{% endblock %}
+{% block title %}Paiement - Au Coin du Feu{% endblock %}
 
 {% block content %}
+    <h2>Récapitulatif de commande</h2>
+    <p>Vérifiez vos informations avant de payer votre commande.</p>
 
     <br>
     <br>
@@ -11,12 +13,9 @@
     <hr>
     <div class="row">
         <div class="col-md-6">
-            {% set formHtml %}
-                {{ form_start(form, {action:path('order_recap')}) }}
-                {{ form_end(form) }}
-            {% endset %}
-            {{ formHtml|replace({'[br]' : '<br>'})|raw }}
+            Mon adresse de livraison
             <br>
+            Mon transporteur
         </div>
         <div class="col-md-6">
             <div class="text-center">
@@ -32,10 +31,13 @@
                             {{ product.product.name }}
                             <br>
                             <small>{{ product.product.subtitle }}</small>
+                        <div class="col-2 my-auto">
+                            {{ (product.product.price/100) | number_format(2) }} €
                         </div>
                     </div>
                 {% endfor %}
             </div>
+            <a href="" class="btn btn-success btn-block mt-3">Payer</a>
         </div>
     </div>
 

@@ -6,6 +6,7 @@ use App\Classe\Cart;
 use App\Entity\Order;
 use App\Entity\OrderDetails;
 use App\Form\OrderType;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,6 +14,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class OrderController extends AbstractController
 {
+    private $entityManager;
+
+    public function __construct(EntityManagerInterface $entityManager)
+    {
+        $this->entityManager = $entityManager;
+    }
     /**
      * @Route("/commande", name="order")
      */
@@ -71,12 +78,20 @@ class OrderController extends AbstractController
             $order->setDelivery($delivery_content);
             $order->setIsPaid(0);
 
+            $this->entityManager->persist($order);
+
             // Save OrderDetail() products
             foreach ($cart->getFull() as $product)
             {
                 $orderDetails = new OrderDetails();
                 $orderDetails->setMyOrder($order);
+                $orderDetails->setProduct($product['product']->getName());
+                $orderDetails->setPrice($product['product']->getPrice());
+
+                $this->entityManager->persist($orderDetails);
             }
+
+            //$this->entityManager->flush();
         }
 
         return $this->render('order/add.html.twig', [
