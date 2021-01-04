@@ -80,6 +80,9 @@ class OrderController extends AbstractController
 
             $this->entityManager->persist($order);
 
+            $products_for_stripe = [];
+            $YOUR_DOMAIN = 'http://127.0.0.1:8000';
+
             // Save OrderDetail() products
             foreach ($cart->getFull() as $product)
             {
@@ -93,10 +96,12 @@ class OrderController extends AbstractController
 
             $this->entityManager->flush();
 
+            //Stripe::setApiKey(sk_test_51I5hTJCnopHiSqQNaiopuA8W8zWySDbAzrKsgrWth4i4hC2oQcNv6lKKFXdW3RYhRchrxM3gsl7bfj1YQ4j25UQf00woWIqim2);
+
             return $this->render('order/add.html.twig', [
                 'cart' => $cart->getFull(),
                 'carrier' => $carriers,
-                'delivery' => $delivery_content
+                'delivery' => $delivery_content,
             ]);
         }
 

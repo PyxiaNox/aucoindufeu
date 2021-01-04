@@ -12,6 +12,9 @@
         {% block stylesheets %}
             <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
             <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+
+            {% block javascript %}{% endblock %}
+
             <!-- Bootstrap core CSS -->
             <style>
                 .bd-placeholder-img {
@@ -169,4 +172,5 @@
         <script src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
 
     </body>
+{% block script %}{% endblock %}
 </html>
