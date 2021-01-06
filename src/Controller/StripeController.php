@@ -6,6 +6,7 @@ use App\Entity\Order;
 use App\Entity\Product;
 use Doctrine\ORM\EntityManagerInterface;
 use Stripe\Checkout\Session;
+use Stripe\Exception\ApiErrorException;
 use Stripe\Stripe;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -16,6 +17,10 @@ class StripeController extends AbstractController
 {
     /**
      * @Route("/commande/creation-session/{reference}", name="stripe_create_session", methods={"POST"})
+     * @param EntityManagerInterface $entityManager
+     * @param $reference
+     * @return Response
+     * @throws ApiErrorException
      */
     public function index(EntityManagerInterface $entityManager, $reference): Response
     {
@@ -56,7 +61,7 @@ class StripeController extends AbstractController
             'quantity' => 1
         ];
 
-        Stripe::setApiKey("sk_test_51I5hTJCnopHiSqQNaiopuA8W8zWySDbAzrKsgrWth4i4hC2oQcNv6lKKFXdW3RYhRchrxM3gsl7bfj1YQ4j25UQf00woWIqim2");
+        Stripe::setApiKey('sk_test_51I5hTJCnopHiSqQNaiopuA8W8zWySDbAzrKsgrWth4i4hC2oQcNv6lKKFXdW3RYhRchrxM3gsl7bfj1YQ4j25UQf00woWIqim2');
 
         $YOUR_DOMAIN = 'http://127.0.0.1:80';
 

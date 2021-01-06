@@ -7,10 +7,10 @@
     <p>Bonjour <strong>{{ order.user.firstname }} {{ order.user.lastname }}</strong>.
     <br>
         Il semblerait que votre paiement ait échoué pour votre commande n° <strong>{{ order.reference }}</strong>.
-<br>
-Un mail d'erreur vient de vous être envoyé à l'adresse suivante : <strong>{{ order.user.email }}</strong>.
-<br>
+    <br>
+    Un mail d'erreur vient de vous être envoyé à l'adresse suivante : <strong>{{ order.user.email }}</strong>.
+    <br>
         <a href="{{ path('order') }}" class="btn btn-success">Réessayer le paiement</a>
-</p>
+    </p>
 
 {% endblock %}

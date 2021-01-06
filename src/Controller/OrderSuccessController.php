@@ -20,6 +20,9 @@ class OrderSuccessController extends AbstractController
 
     /**
      * @Route("/commande/merci/{stripeSessionId}", name="order_success")
+     * @param $stripeSessionId
+     * @param Cart $cart
+     * @return Response
      */
     public function index($stripeSessionId, Cart $cart): Response
     {

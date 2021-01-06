@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-
+{% block stripescript %}<script src="https://js.stripe.com/v3/"></script>{% endblock %}
 {% block title %}Paiement - Au Coin du Feu{% endblock %}
 
 {% block content %}
@@ -57,12 +57,11 @@
 
 {% endblock %}
 
-{% block script %}
-<script type="text/javascript" src="https://js.stripe.com/v3/"></script>
+{% block javascripts %}
 <script type="text/javascript">
 
     // Create an instance of the Stripe object with your publishable API key
-    let stripe = Stripe("pk_test_51I5hTJCnopHiSqQNU92MItZvHMjlkzaIvFA9HfqC6U2kgH9pqL00qzOhDpKxUI31mdIJ9sKXSiJVsA9eQxq1d9l800TIHFuaId");
+    let stripe = Stripe("sk_test_51I5hozGLZeyScSWrjHhZMK9lp9aJJ4OEQv37Zd34afyLEGEI2lJTXte6CBLVoDapQFNySdYis0AIonnD99uXNAnK00ehroEGJG");
     let checkoutButton = document.getElementById("checkout-button");
 
     checkoutButton.addEventListener("click", function () {
