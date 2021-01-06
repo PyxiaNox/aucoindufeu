@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Classe\Cart;
 use App\Entity\Order;
 use App\Entity\Product;
 use Doctrine\ORM\EntityManagerInterface;
@@ -16,14 +15,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class StripeController extends AbstractController
 {
     /**
-     * @Route("/commande/creation-session/{reference}", name="stripe_create_session")
+     * @Route("/commande/creation-session/{reference}", name="stripe_create_session", methods={"POST"})
      */
-    public function index(EntityManagerInterface $entityManager, Cart $cart, $reference): Response
+    public function index(EntityManagerInterface $entityManager, $reference): Response
     {
         $products_for_stripe = [];
-        $YOUR_DOMAIN = 'http://127.0.0.1:8000';
+        $YOUR_DOMAIN = 'http://127.0.0.1:80';
 
-        $order = $entityManager->getRepository(Order::class)->findOneBy(['reference', $reference]);
+        $order = $entityManager->getRepository(Order::class)->findOneBy(['reference' => $reference]);
 
         if (!$order)
         {
@@ -57,9 +56,9 @@ class StripeController extends AbstractController
             'quantity' => 1
         ];
 
-        Stripe::setApiKey(sk_test_51I5hTJCnopHiSqQNaiopuA8W8zWySDbAzrKsgrWth4i4hC2oQcNv6lKKFXdW3RYhRchrxM3gsl7bfj1YQ4j25UQf00woWIqim2);
+        Stripe::setApiKey("sk_test_51I5hTJCnopHiSqQNaiopuA8W8zWySDbAzrKsgrWth4i4hC2oQcNv6lKKFXdW3RYhRchrxM3gsl7bfj1YQ4j25UQf00woWIqim2");
 
-        $YOUR_DOMAIN = 'http://127.0.0.1:8000';
+        $YOUR_DOMAIN = 'http://127.0.0.1:80';
 
         $checkout_session = Session::create([
             'customer_email' => $this->getUser()->getEmail(),
