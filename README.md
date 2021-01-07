@@ -1,6 +1,22 @@
 # aucoindufeu
 
-IN WORK
+### IN WORK
 
-Au Coin du Feu is a vocal chat with eSpeak and MBROLA technologies.
-I need to improve my skills in native PHP (I only work with Symfony for the moment) and have some with Linux first !
+My first website, a showcase of what I can do with Symfony. It's about an antique shop/used bookstore ! 
+
+### Technologies
+
+**Front-end**
+- HTML
+- CSS - SASS/SCSS
+- BootStrap
+- Native JavaScript
+
+**Back-end**
+- MySQL
+- Symfony - Twig
+
+**Bundles**
+- EasyAdmin
+- Stripe
+- MailJet
