@@ -9,6 +9,15 @@
     Bienvenue {{ app.user.firstname }}.
     <br>
     <a href="{{ path('account_order') }}">Retour</a>
+    <strong>Statut de la commande : </strong>
+    {% if order.state == 1 %}
+        Paiement accepté
+    {% elseif order.state == 2 %}
+        Préparation en cours
+    {% else order.state == 3 %}
+        Livraison en cours
+    {% endif %}
+    <br>
     <hr>
     <strong>Date :</strong> {{ order.createAt|date('d/m/Y') }}
     <br>
