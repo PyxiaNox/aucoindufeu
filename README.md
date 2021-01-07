@@ -16,7 +16,7 @@ My first website, a showcase of what I can do with Symfony. It's about an antiqu
 - MySQL
 - Symfony - Twig
 
-**Bundles**
+**API**
 - EasyAdmin
 - Stripe
 - MailJet
