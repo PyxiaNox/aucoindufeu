@@ -6,6 +6,7 @@ use App\Classe\Mail;
 use App\Entity\Order;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
@@ -36,7 +37,7 @@ class OrderCrudController extends AbstractCrudController
 
     public function configureActions(Actions $actions): Actions
     {
-        $updatePreparation = Action::new('upatePreparation', 'Préparation en cours', 'fas fa-box-open')->linkToCrudAction('updatePreparation');
+        $updatePreparation = Action::new('updatePreparation', 'Préparation en cours', 'fas fa-box-open')->linkToCrudAction('updatePreparation');
         $updateDelivery = Action::new('updateDelivery', 'Livraison en cours', 'fas fa-truck')->linkToCrudAction('updateDelivery');
 
         return $actions
@@ -100,7 +101,7 @@ class OrderCrudController extends AbstractCrudController
             MoneyField::new('total', 'Total')->setCurrency('EUR'),
             TextField::new('carrierName', 'Transporteur'),
             MoneyField::new('carrierPrice', 'Frais de port')->setCurrency('EUR'),
-            ChoiceField::new('state')->setChoices([
+            ChoiceField::new('state', 'Etat')->setChoices([
                 'Non-payée' => 0,
                 'Payée' => 1,
                 'Préparation en cours' => 2,

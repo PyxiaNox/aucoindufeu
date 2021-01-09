@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Product;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
@@ -22,22 +23,23 @@ class ProductCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('name'),
-            SlugField::new('slug')
+            TextField::new('name', 'Nom'),
+            SlugField::new('slug', 'Slug')
                 ->setTargetFieldName('name'),
-            TextField::new('subtitle'),
-            ImageField::new('picture')
+            TextField::new('subtitle', 'Sous-titre'),
+            ImageField::new('picture', 'Illustration')
                 ->setBasePath('img/')
                 ->setUploadDir('public/assets/img/')
                 ->setUploadedFileNamePattern('[randomhash].[extension]')
                 ->setRequired(false),
-            TextField::new('author'),
-            TextField::new('editor'),
-            IntegerField::new('publication_date'),
-            TextareaField::new('description'),
-            MoneyField::new('price')
+            TextField::new('author', 'Auteur'),
+            TextField::new('editor', 'Editeur'),
+            IntegerField::new('publication_date', 'Date de publication'),
+            TextareaField::new('description', 'Description'),
+            AssociationField::new('category', 'Catégorie'),
+            BooleanField::new('isBest', 'Favoris'),
+            MoneyField::new('price', 'Prix')
                 ->setCurrency('EUR'),
-            AssociationField::new('category')
         ];
     }
 
