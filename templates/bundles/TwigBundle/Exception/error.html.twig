@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page introuvable - Au Coin du Feu{% endblock %}
+
+{% block content %}
+
+    <div class="block-small">
+        <h2>Page introuvable</h2>
+        <br>
+        <hr>
+        <br>
+        <p>Cette page n'est pas accessible.</p>
+        <br>
+        <a href="{{ path('home') }}" class="btn btn-info">Revenir à l'accueil</a>
+    </div>
+
+{% endblock %}
