@@ -5,7 +5,7 @@
 {% block content %}
 
     <br>
-    <h1>Mes commandes</h1>
+    <h3>Mes commandes</h3>
     Bienvenue {{ app.user.firstname }}.
     <br>
     C'est dans cet espace que vous pouvez voir toutes vos commandes.
@@ -34,7 +34,7 @@
                         Paiement accepté
                     {% elseif order.state == 2 %}
                         Préparation en cours
-                    {% else order.state == 3 %}
+                    {% elseif order.state == 3 %}
                         Livraison en cours
                     {% endif %}</td>
                 <td>{{ order.orderDetails|length }}</td>

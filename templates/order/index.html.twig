@@ -6,7 +6,7 @@
 
     <br>
     <br>
-    <h2>Gestion des commandes</h2>
+    <h3>Gestion des commandes</h3>
     <p>Choisissez vos préférences de livraison avant de valider votre commande.</p>
     <hr>
     <div class="row">
@@ -28,7 +28,7 @@
                 {% for key,product in cart %}
                     <div class="row {% if key > 0 %}mt-2{% endif %}">
                         <div class="col-2">
-                            <img src="/img/{{ product.product.picture }}" alt="{{ product.product.name }}" height="75px">
+                            <img src="{{ asset('assets/img/products/' ~ product.product.picture ) }}" alt="{{ product.product.name }}" height="75px">
                         </div>
                         <div class="col-8 my-auto">
                             {{ product.product.name }}

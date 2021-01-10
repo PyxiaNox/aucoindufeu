@@ -40,39 +40,35 @@
 
         <header>
             <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                <div class="w-25">
-                    <a href="{{ path('home') }}" class="navbar-brand">
-                        <img src="{{ asset('assets/img/AuCoinDuFeuLogo.png') }}" class="img-fluid" alt="Logo Au Coin du Feu">
-                    </a>
-                </div>
-
+                <a class="navbar-brand" href="{{ path('home') }}">
+                    <img src="{{ asset('assets/img/AuCoinDuFeuLogo.png') }}" class="img-fluid" alt="Logo Au Coin du Feu" width="250px">
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav mr-auto d-flex align-items-center">
+                    <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
                             <a class="nav-link" href="{{ path('products') }}">Nos livres</a>
                         </li>
-                        <li>
+                        <li class="nav-item active">
                             <a class="nav-link" href="{{ path('contact') }}">Nous contacter</a>
                         </li>
                     </ul>
-
-                    <div class="navbar-item-custom d-flex align-items-center">
+                    <div class="navbar-item-custom">
                         {% if app.user %}
-                            <a href="{{ path('account') }}">Mon compte - {{ app.user.firstname }} -</a> | <a href="{{ path('app_logout') }}">Déconnexion</a>
+                            <a href="{{ path('account') }}">Mon compte <small>({{ app.user.firstname }})</small></a> &middot; <a href="{{ path('app_logout') }}">Déconnexion</a>
                         {% else %}
-                            <a href="{{ path('app_login') }}">Connexion</a> | <a href="{{ path('register') }}">Inscription</a>
+                            <a href="{{ path('app_login') }}">Connexion</a> &middot; <a href="{{ path('register') }}">Inscription</a>
                         {% endif %}
                     </div>
                     <a href="{{ path('cart') }}">
-                        <img src="{{ asset('assets/img/icon/basket.png') }}" alt="Panier" height="25px" class="cart-icon">
+                        <img src="{{ asset('assets/img/icon/cart.png') }}" class="cart-icon" alt="Mon panier" height="25px">
                     </a>
-
                 </div>
             </nav>
         </header>
+
 
         <main role="main">
 
@@ -86,7 +82,7 @@
                 </ol>
                 <div class="carousel-inner">
                     {% for key,header in headers %}
-                    <div class="carousel-item {% if key == 0 %}active{% endif %}" style="background: url('/carousel/{{ header.illustration }}'); background-size: cover;">
+                    <div class="carousel-item {% if key == 0 %}active{% endif %}" style='background: url("{{ asset('assets/img/carousel/' ~ header.illustration ) }}"); background-size: cover;'>
                         <div class="container">
                             <div class="carousel-caption">
                                 <h1>{{ header.title }}</h1>
@@ -126,10 +122,10 @@
             </div><!-- /.container -->
 
             <!-- FOOTER -->
-            <footer class="footer-custom">
+            <footer class="footer-custom bg-dark">
                 <p>&copy; 2021 Au Coin du Feu<br>
                     <small>
-                        <a href="#">Localisation et horaires</a>
+                        <a href="{{ path('contact') }}">Localisation et horaires</a>
                         &middot;
                         <a href="#">Mentions légales</a>
                         &middot;
@@ -141,8 +137,22 @@
 
         {% endblock %}
 
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
+    <script type="text/javascript">
+
+        function placeFooter() {
+            if( $(document.body).height() < $(window).height() ) {
+                $("footer").css({position: "fixed", bottom:"0px"});
+            } else {
+                $("footer").css({position: ""});
+            }
+        }
+
+        placeFooter();
+
+    </script>
+
 
     </body>
 

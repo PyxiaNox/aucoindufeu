@@ -4,11 +4,11 @@
 
 {% block content %}
 
-    <h1>Mon compte</h1>
+    <h3>Mon compte</h3>
     Bienvenue {{ app.user.firstname }}.
     <br>
     {% if is_granted('ROLE_ADMIN') %}
-        <a href="/admin">Tableau de bord - Administrateur</a>
+        <a href="{{ path('admin') }}">Tableau de bord - Administrateur</a>
     {% endif %}
     <br>
     C'est dans cet espace que vous pouvez gérer vos informations personnelles.
