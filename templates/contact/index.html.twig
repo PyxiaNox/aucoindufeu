@@ -1,20 +1,33 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ContactController!{% endblock %}
+{% block title %}Nous contacter - Au Coin du Feu{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{% block content %}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h2>Nous contacter</h2>
+    <br>
+    <p>N'hésitez pas à vous contacter, nous vous répondrons dans les meilleurs délais.</p>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/aucoindufeu/src/Controller/ContactController.php'|file_link(0) }}">src/Controller/ContactController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/wamp64/www/aucoindufeu/templates/contact/index.html.twig'|file_link(0) }}">templates/contact/index.html.twig</a></code></li>
-    </ul>
-</div>
+    {% for message in app.flashes('notice') %}
+        <div class="alert alert-info">{{ message }}</div>
+    {% endfor %}
+
+    <div class="row">
+        <div class="col-md-8">{{ form(form) }}</div>
+        <div class="col-md-4">
+            <h3><strong>Au Coin du Feu</strong></h3>
+            <br>
+            <hr>
+            <br>
+            <strong>Adresse : </strong>8 Rue des Lilas<br>75100 PARIS
+            <br><br>
+            <strong>Horaires : </strong>Du mardi au vendredi<br>09H30 - 18H30
+            <br><br>
+            <strong>Téléphone :</strong> 06.57.12.54.98
+            <br><br>
+            <strong>Mail : </strong>andre.claudel.bouquiniste@gmail.com
+        </div>
+    </div>
+
 {% endblock %}
+
