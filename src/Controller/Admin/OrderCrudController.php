@@ -60,7 +60,7 @@ class OrderCrudController extends AbstractCrudController
             ->generateUrl();
 
         $mail = new Mail();
-        $content = "Bonjour ".$order->getUser()->getFirstname()."<br>Votre commande ".$order->getReference()." sur le site Au Coin du Feu est en cours de préparation.";
+        $content = "Bonjour ".$order->getUser()->getFirstname()."<br><br>Votre commande <strong>".$order->getReference()."</strong> sur le site Au Coin du Feu est en cours de préparation.";
         $mail->send($order->getUser()->getEmail(), $order->getUser()->getFirstname(), 'Commande en cours de préparation Au Coin du Feu', $content);
 
         return $this->redirect($url);
@@ -80,7 +80,7 @@ class OrderCrudController extends AbstractCrudController
             ->generateUrl();
 
         $mail = new Mail();
-        $content = "Bonjour ".$order->getUser()->getFirstname()."<br>Votre commande ".$order->getReference()." sur le site Au Coin du Feu est en cours de livraison.";
+        $content = "Bonjour ".$order->getUser()->getFirstname()."<br><br>Votre commande <strong>".$order->getReference()."</strong> sur le site Au Coin du Feu est en cours de livraison.";
         $mail->send($order->getUser()->getEmail(), $order->getUser()->getFirstname(), 'Commande en cours de livraison Au Coin du Feu', $content);
 
         return $this->redirect($url);
