@@ -57,7 +57,7 @@
                     </ul>
                     <div class="navbar-item-custom">
                         {% if app.user %}
-                            <a href="{{ path('account') }}" style="color: #CFB53B"><strong>Mon compte <small>({{ app.user.firstname }})</small></strong></a> &middot; <a href="{{ path('app_logout') }}" style="color: #CFB53B"><strong>Déconnexion</strong></a>
+                            <a href="{{ path('account') }}" style="color: #CFB53B"><strong>Mon compte <small>({{ app.user.firstname }})</small></strong></a>  <a href="{{ path('app_logout') }}" style="color: #CFB53B">&middot; <strong>Déconnexion</strong></a>
                         {% else %}
                             <a href="{{ path('app_login') }}" style="color: #CFB53B"><strong>Connexion</strong></a> &middot; <a href="{{ path('register') }}" style="color: #CFB53B"><strong>Inscription</strong></a>
                         {% endif %}
