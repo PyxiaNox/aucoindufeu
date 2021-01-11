@@ -3,8 +3,9 @@
 {% block title %}Mon compte - Au Coin du Feu{% endblock %}
 
 {% block content %}
-
+    <br>
     <h3>Mon compte</h3>
+    <br>
     Bienvenue {{ app.user.firstname }}.
     <br>
     {% if is_granted('ROLE_ADMIN') %}

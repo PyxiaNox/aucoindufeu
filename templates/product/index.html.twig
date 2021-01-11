@@ -3,15 +3,16 @@
 {% block title %}Nos livres - Au Coin du Feu{% endblock %}
 
 {% block content %}
+    <br>
     <div class="row">
 
         <div class="col-md-3">
-            <h3>Filtrer</h3>
+            <h3 style="text-align: center">Filtrer</h3>
             {{ form(form) }}
 
         </div>
         <div class="col-md-9">
-            <h3>Nos livres</h3>
+            <h3 style="text-align: center">Nos livres</h3>
 
             <div class="row product-container">
                 {% for product in products %}

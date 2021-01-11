@@ -3,9 +3,9 @@
 {% block title %}Mon panier - Au Coin du Feu{% endblock %}
 
 {% block content %}
-    <hr>
+    <br>
     <h3>Mon panier</h3>
-
+    <hr>
     Retrouvez ici l'ensemble des livres que vous avez ajouté à votre panier.
 
     {% if cart|length > 0 %}
@@ -50,7 +50,7 @@
         <b>Total :</b> {{ (total/100)| number_format(2) }} €
         <br>
         <br>
-        <a href="{{ path('order') }}" class="btn btn-success">Valider</a>
+        <a href="{{ path('order') }}" class="btn btn-dark" style="color: #CFB53B" type="submit"><strong>Valider</strong></a>
     </div>
 
     {% else %}

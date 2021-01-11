@@ -9,7 +9,7 @@
             <div class="alert alert-info">{{ message }}</div>
         {% endfor %}
         <form method="post">
-
+            <br>
             <h3 class="h3 mb-3 font-weight-normal">Réinitialiser votre mot de passe</h3>
             <label for="inputEmail">Adresse mail</label>
             <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Votre adresse mail" required autofocus>
@@ -25,8 +25,8 @@
             </div>
             #}
             <br>
-            <button class="btn btn-lg btn-info btn-sm" type="submit">
-                Valider
+            <button type="submit" class="btn btn-dark btn-lg btn-sm btn-block" style="color: #CFB53B">
+                <strong>Valider</strong>
             </button>
             <hr>
             <p class="text-center">Ou souhaitez-vous <a href="{{ path('app_login') }}">vous connecter ?</a></p>

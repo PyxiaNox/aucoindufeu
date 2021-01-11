@@ -3,7 +3,9 @@
 {% block title %}Paiement - Au Coin du Feu{% endblock %}
 
 {% block content %}
+    <br>
     <h3>Récapitulatif de commande</h3>
+    <br>
     <p>Vérifiez vos informations avant de payer votre commande.</p>
     <hr>
     <div class="row">
@@ -51,7 +53,7 @@
                 <strong>Livraison : </strong>{{ (carrier.price/100)| number_format(2) }} €
                 <hr>
                 <strong>Total : </strong>{{ (total/100) + (carrier.price/100) }} €
-            <a class="btn btn-success btn-block mt-3" id="checkout-button">Payer {{ (total/100) + (carrier.price/100)| number_format(2) }} €</a>
+            <a id="checkout-button" class="btn btn-dark btn-block mt-3" style="color: #CFB53B" type="submit">Payer {{ (total/100) + (carrier.price/100)| number_format(2) }} €</a>
         </div>
     </div>
 

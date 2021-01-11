@@ -49,17 +49,17 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ path('products') }}">Nos livres</a>
+                            <a class="nav-link" href="{{ path('products') }}" style="color: #CFB53B"><strong>Nos livres</strong></a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ path('contact') }}">Nous contacter</a>
+                            <a class="nav-link" href="{{ path('contact') }}" style="color: #CFB53B"><strong>Nous contacter</strong></a>
                         </li>
                     </ul>
                     <div class="navbar-item-custom">
                         {% if app.user %}
-                            <a href="{{ path('account') }}">Mon compte <small>({{ app.user.firstname }})</small></a> &middot; <a href="{{ path('app_logout') }}">Déconnexion</a>
+                            <a href="{{ path('account') }}" style="color: #CFB53B"><strong>Mon compte <small>({{ app.user.firstname }})</small></strong></a> &middot; <a href="{{ path('app_logout') }}" style="color: #CFB53B"><strong>Déconnexion</strong></a>
                         {% else %}
-                            <a href="{{ path('app_login') }}">Connexion</a> &middot; <a href="{{ path('register') }}">Inscription</a>
+                            <a href="{{ path('app_login') }}" style="color: #CFB53B"><strong>Connexion</strong></a> &middot; <a href="{{ path('register') }}" style="color: #CFB53B"><strong>Inscription</strong></a>
                         {% endif %}
                     </div>
                     <a href="{{ path('cart') }}">
@@ -88,7 +88,7 @@
                                 <h1>{{ header.title }}</h1>
                                 <p>{{ header.content }}</p>
                                 <p>
-                                    <a class="btn btn-lg btn-info" href="{{ header.btnurl }}" role="button">{{ header.btntitle }}</a>
+                                    <a class="btn btn-lg" href="{{ header.btnurl }}" role="button" style="background-color: #CFB53B"><strong>{{ header.btntitle }}</strong></a>
                                 </p>
                             </div>
                         </div>
@@ -123,7 +123,7 @@
 
             <!-- FOOTER -->
             <footer class="footer-custom bg-dark">
-                <p>&copy; 2021 Au Coin du Feu<br>
+                <p style="color: #CFB53B"><strong>&copy; 2021 Au Coin du Feu</strong><br>
                     <small>
                         <a href="{{ path('contact') }}">Localisation et horaires</a>
                         &middot;

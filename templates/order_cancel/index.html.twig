@@ -3,14 +3,16 @@
 {% block title %}Erreur de paiement - Au Coin du Feu{% endblock %}
 
 {% block content %}
+    <br>
     <h3>Erreur de paiement</h3>
+    <br>
     <p>Bonjour <strong>{{ order.user.firstname }} {{ order.user.lastname }}</strong>.
     <br>
         Il semblerait que votre paiement ait échoué pour votre commande n° <strong>{{ order.reference }}</strong>.
     <br>
     Un mail d'erreur vient de vous être envoyé à l'adresse suivante : <strong>{{ order.user.email }}</strong>.
     <br>
-        <a href="{{ path('order') }}" class="btn btn-success">Réessayer le paiement</a>
+        <a href="{{ path('order') }}" class="btn btn-dark" style="color: #CFB53B" type="submit"><strong>Réessayer le paiement</strong></a>
     </p>
 
 {% endblock %}

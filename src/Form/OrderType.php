@@ -35,7 +35,8 @@ class OrderType extends AbstractType
             ->add('submit', SubmitType::class, [
                 'label' => 'Valider',
                 'attr' => [
-                    'class' => 'btn btn-success btn-block'
+                    'class' => 'btn btn-dark btn-block',
+                    'style' => 'color : #CFB53B'
                 ]
             ])
         ;

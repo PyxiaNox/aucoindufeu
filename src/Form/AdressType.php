@@ -74,7 +74,8 @@ class AdressType extends AbstractType
             ->add('submit', SubmitType::class, [
                 'label' => "Valider",
                 'attr' => [
-                    'class' => 'btn btn-info'
+                    'class' => 'btn btn-dark btn-block',
+                    'style '=> 'color : #CFB53B'
                 ]
             ])
         ;
