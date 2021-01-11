@@ -41,29 +41,39 @@
         <header>
             <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
                 <a class="navbar-brand" href="{{ path('home') }}">
-                    <img src="{{ asset('assets/img/AuCoinDuFeuLogo.png') }}" class="img-fluid" alt="Logo Au Coin du Feu" width="250px">
+                    <img src="{{ asset('assets/img/AuCoinDuFeuLogo.png') }}" class="img-fluid"
+                         alt="Logo Au Coin du Feu" width="250px">
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarCollapse" aria-controls="navbarCollapse"
+                        aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ path('products') }}" style="color: #CFB53B"><strong>Nos livres</strong></a>
+                            <a class="nav-link" href="{{ path('products') }}"
+                               style="color: #CFB53B"><strong>Nos livres</strong></a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ path('contact') }}" style="color: #CFB53B"><strong>Nous contacter</strong></a>
+                            <a class="nav-link" href="{{ path('contact') }}"
+                               style="color: #CFB53B"><strong>Nous contacter</strong></a>
                         </li>
                     </ul>
                     <div class="navbar-item-custom">
                         {% if app.user %}
-                            <a href="{{ path('account') }}" style="color: #CFB53B"><strong>Mon compte <small>({{ app.user.firstname }})</small></strong></a>  <a href="{{ path('app_logout') }}" style="color: #CFB53B">&middot; <strong>Déconnexion</strong></a>
+                            <a href="{{ path('account') }}" style="color: #CFB53B">
+                                <strong>Mon compte <small>({{ app.user.firstname }})</small></strong></a>
+                            <a href="{{ path('app_logout') }}" style="color: #CFB53B">&middot; <strong>Déconnexion</strong></a>
                         {% else %}
-                            <a href="{{ path('app_login') }}" style="color: #CFB53B"><strong>Connexion</strong></a> &middot; <a href="{{ path('register') }}" style="color: #CFB53B"><strong>Inscription</strong></a>
+                            <a href="{{ path('app_login') }}" style="color: #CFB53B">
+                                <strong>Connexion</strong></a> &middot; <a href="{{ path('register') }}" style="color: #CFB53B">
+                            <strong>Inscription</strong></a>
                         {% endif %}
                     </div>
                     <a href="{{ path('cart') }}">
-                        <img src="{{ asset('assets/img/icon/cart_header.png') }}" class="cart-icon" alt="Mon panier" height="25px">
+                        <img src="{{ asset('assets/img/icon/cart_header.png') }}" class="cart-icon"
+                             alt="Mon panier" height="25px">
                     </a>
                 </div>
             </nav>
@@ -88,7 +98,8 @@
                                 <h1>{{ header.title }}</h1>
                                 <p>{{ header.content }}</p>
                                 <p>
-                                    <a class="btn btn-lg" href="{{ header.btnurl }}" role="button" style="background-color: #CFB53B"><strong>{{ header.btntitle }}</strong></a>
+                                    <a class="btn btn-lg" href="{{ header.btnurl }}" role="button"
+                                       style="background-color: #CFB53B"><strong>{{ header.btntitle }}</strong></a>
                                 </p>
                             </div>
                         </div>
