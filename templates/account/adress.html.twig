@@ -17,7 +17,8 @@
         {% if app.user.adresses|length == 0 %}
         <p class="text-center">Vous n'avez pas encore ajouté d'adresse dans votre compte client.
         <br>
-        Pour en ajouter une, cliquez <a href="{{ path('account_adress_add') }}">ici</a> ou sur le bouton "Ajouter une adresse".
+        Pour en ajouter une, cliquez <a href="{{ path('account_adress_add') }}">ici</a>
+            ou sur le bouton "Ajouter une adresse".
         </p>
         {% else %}
             <div class="row">
@@ -31,7 +32,8 @@
                                 <br>
                                 {{ adress.zipcode }} - {{ adress.city }} - {{ adress.country }}
                             </p>
-                            <a href="{{ path('account_adress_edit', { 'id' : adress.id }) }}">Modifier</a> | <a href="{{ path('account_adress_delete', { 'id' : adress.id }) }}">Supprimer</a>
+                            <a href="{{ path('account_adress_edit', { 'id' : adress.id }) }}">Modifier</a>
+                            | <a href="{{ path('account_adress_delete', { 'id' : adress.id }) }}">Supprimer</a>
                         </div>
                     </div>
                 </div>

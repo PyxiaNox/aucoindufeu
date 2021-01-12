@@ -49,10 +49,12 @@ class RegisterController extends AbstractController
                 $this->entityManager->flush();
 
                 $mail = new Mail();
-                $content = "Bonjour ".$user->getFirstname()."<br>Bienvenue sur le site Au Coin du Feu, votre bouquiniste spécialisé dans l'expertise et la vente de livres rares et anciens !";
+                $content = "Bonjour ".$user->getFirstname()."<br>Bienvenue sur le site Au Coin du Feu, 
+                votre bouquiniste spécialisé dans l'expertise et la vente de livres rares et anciens !";
                 $mail->send($user->getEmail(), $user->getFirstname(), 'Bienvenue Au Coin du Feu', $content);
 
-                $notification = "Votre inscription a bien été enregistrée. Vous pouvez dès à présent vous connecter à votre compte.";
+                $notification = "Votre inscription a bien été enregistrée. Vous pouvez dès à présent 
+                vous connecter à votre compte.";
             } else {
                 $notification = "L'adresse mail que vous avez renseigné existe déjà.";
             }
