@@ -1,14 +1,17 @@
-# aucoindufeu
+### Au Coin du Feu
 
-### IN PROGRESS
+#### IN PROGRESS
 
-My first website, a showcase of what I can do with Symfony. It's about an antique shop/used bookstore ! 
+My first website, a showcase of what I can do with Symfony. It's about an antique shop/used bookstore (e-shop website) ! 
 
-### Technologies
+> "Au Coin du Feu" is an e-shop website for a fictive used bookstore.
+> This is my project to pass my degree to be web developer.
+
+#### Technologies
 
 **Front-end**
 - HTML
-- CSS - SASS/SCSS
+- CSS
 - BootStrap
 - Native JavaScript
 
@@ -16,7 +19,9 @@ My first website, a showcase of what I can do with Symfony. It's about an antiqu
 - MySQL
 - Symfony - Twig
 
-**API**
+**Bundle**
 - EasyAdmin
+
+**API**
 - Stripe
 - MailJet
