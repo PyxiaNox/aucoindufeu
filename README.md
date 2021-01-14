@@ -41,6 +41,6 @@ My first website, a showcase of what I can do with Symfony. It's about an antiqu
 **Dependency manager**
 - Composer v.2.0.9
 
-**Misc**
+**Miscellaneous**
 - Git v.2.29.2
 - JMerise v.0.5
