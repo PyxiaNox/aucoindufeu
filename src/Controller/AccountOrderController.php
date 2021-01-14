@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Order;
+use App\Entity\OrderDetails;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Mapping\Id;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -36,6 +38,7 @@ class AccountOrderController extends AbstractController
     {
         $order = $this->entityManager->getRepository(Order::class)->findOneBy(['reference' => $reference]);
 
+        //$orderDetails = $this->entityManager->getRepository(OrderDetails::class)->findBy(array('myOrderId' => $this->getId()));
         if (!$order || $order->getUser() != $this->getUser())
         {
             return $this->redirectToRoute('account_order');

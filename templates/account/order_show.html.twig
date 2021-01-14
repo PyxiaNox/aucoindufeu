@@ -10,12 +10,13 @@
     Bienvenue {{ app.user.firstname }}.
     <br>
     <a href="{{ path('account_order') }}">Retour</a>
+    <br>
     <strong>Statut de la commande : </strong>
     {% if order.state == 1 %}
         Paiement accepté
     {% elseif order.state == 2 %}
         Préparation en cours
-    {% else order.state == 3 %}
+    {% elseif order.state == 3 %}
         Livraison en cours
     {% endif %}
     <br>
@@ -47,7 +48,7 @@
     <div class="text-right">
         <strong>Sous-total : </strong>{{ (order.getTotal / 100)|number_format(2) }} €<br>
         <strong>Livraison : </strong>{{ (order.carrierPrice / 100)|number_format(2) }} €<br>
-        <strong>Total : </strong>{{ ((order.carrierPrice + order.getTotal) / 100)|number_format(2) }} €
+        <strong>Total : </strong>{{ ((order.carrierPrice + order.getTotal / 100)|number_format(2) }} €
     </div>
 
 {% endblock %}

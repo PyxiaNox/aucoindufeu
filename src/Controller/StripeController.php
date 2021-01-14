@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class StripeController extends AbstractController
 {
     /**
-     * @Route("/commande/creation-session/{reference}", name="stripe_create_session", methods={"POST"})
+     * @Route("/commande/creation-session/{reference}", name="stripe_create_session", methods={"GET", "POST"})
      * @param EntityManagerInterface $entityManager
      * @param $reference
      * @return Response
@@ -24,6 +24,8 @@ class StripeController extends AbstractController
      */
     public function index(EntityManagerInterface $entityManager, $reference): Response
     {
+        require_once ('vendor/autoload.php');
+
         $products_for_stripe = [];
         $YOUR_DOMAIN = 'http://127.0.0.1:80';
 
