@@ -7,7 +7,7 @@ My first website, a showcase of what I can do with Symfony. It's about an antiqu
 > "Au Coin du Feu" is an e-shop website for a fictive used bookstore.
 > This is my project to pass my degree to be web developer.
 
-#### Technologies
+#### TECHNOLOGIES
 
 **Front-end**
 - HTML
