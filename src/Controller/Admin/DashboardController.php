@@ -30,7 +30,7 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Au Coin du Feu');
+            ->setTitle("<img src='assets/img/AuCoinDuFeuLogo.png' alt='Au Coin du Feu' width='150px'>");
     }
 
     public function configureMenuItems(): iterable
