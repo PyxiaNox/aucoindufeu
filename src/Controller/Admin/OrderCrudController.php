@@ -94,19 +94,25 @@ class OrderCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id', 'Commande n°'),
+            IdField::new('id', 'Commande n°')
+                ->setTextAlign('center'),
             DateTimeField::new('createAt', 'Passée le'),
-            TextField::new('user.getFullname', 'Client'),
+            TextField::new('user.getFullname', 'Client')
+                ->setTextAlign('center'),
             TextEditorField::new('delivery', 'Adresse de livraison')->onlyOnDetail(),
-            MoneyField::new('total', 'Total')->setCurrency('EUR'),
-            TextField::new('carrierName', 'Transporteur'),
-            MoneyField::new('carrierPrice', 'Frais de port')->setCurrency('EUR'),
+            MoneyField::new('total', 'Total')->setCurrency('EUR')
+                ->setTextAlign('center'),
+            TextField::new('carrierName', 'Transporteur')
+                ->setTextAlign('center'),
+            MoneyField::new('carrierPrice', 'Frais de port')->setCurrency('EUR')
+                ->setTextAlign('center'),
             ChoiceField::new('state', 'Etat')->setChoices([
                 'Non-payée' => 0,
                 'Payée' => 1,
                 'Préparation en cours' => 2,
                 'Livraison en cours' => 3
-            ]),
+            ])
+                ->setTextAlign('center'),
             ArrayField::new('orderDetails', 'Livres achetés')->hideOnIndex()
         ];
     }

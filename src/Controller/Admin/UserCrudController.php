@@ -20,8 +20,10 @@ class UserCrudController extends AbstractCrudController
         return [
             IdField::new('id', 'ID'),
             EmailField::new('email', 'Adresse mail'),
-            TextField::new('firstname', 'Prénom'),
+            TextField::new('firstname', 'Prénom')
+                ->setTextAlign('center'),
             TextField::new('lastname', 'Nom')
+                ->setTextAlign('center')
         ];
     }
 }

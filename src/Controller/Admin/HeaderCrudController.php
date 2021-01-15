@@ -18,9 +18,11 @@ class HeaderCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('title', 'Titre'),
+            TextField::new('title', 'Titre')
+                ->setTextAlign('center'),
             TextareaField::new('content', 'Contenu'),
-            TextField::new('btntitle', 'Titre du bouton'),
+            TextField::new('btntitle', 'Titre du bouton')
+                ->setTextAlign('center'),
             TextField::new('btnurl', 'Destination du bouton'),
             ImageField::new('illustration', 'Illustration')
                 ->setBasePath('carousel/')

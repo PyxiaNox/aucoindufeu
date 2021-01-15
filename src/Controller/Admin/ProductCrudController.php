@@ -23,20 +23,26 @@ class ProductCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('name', 'Nom'),
+            TextField::new('name', 'Nom')
+                ->setTextAlign('center'),
             SlugField::new('slug', 'Slug')
                 ->setTargetFieldName('name'),
-            TextField::new('subtitle', 'Sous-titre'),
+            TextField::new('subtitle', 'Sous-titre')
+                ->setTextAlign('center'),
             ImageField::new('picture', 'Illustration')
                 ->setBasePath('products/')
                 ->setUploadDir('public/assets/img/products/')
                 ->setUploadedFileNamePattern('[randomhash].[extension]')
                 ->setRequired(false),
-            TextField::new('author', 'Auteur'),
-            TextField::new('editor', 'Editeur'),
-            IntegerField::new('publication_date', 'Date de publication'),
+            TextField::new('author', 'Auteur')
+                ->setTextAlign('center'),
+            TextField::new('editor', 'Editeur')
+                ->setTextAlign('center'),
+            IntegerField::new('publication_date', 'Date de publication')
+                ->setTextAlign('center'),
             TextareaField::new('description', 'Description'),
-            AssociationField::new('category', 'Catégorie'),
+            AssociationField::new('category', 'Catégorie')
+                ->setTextAlign('center'),
             BooleanField::new('isBest', 'Favoris'),
             MoneyField::new('price', 'Prix')
                 ->setCurrency('EUR'),
