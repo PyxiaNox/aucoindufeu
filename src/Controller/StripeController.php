@@ -24,7 +24,9 @@ class StripeController extends AbstractController
      */
     public function index(EntityManagerInterface $entityManager, $reference): Response
     {
-        require_once ('vendor/autoload.php');
+        require 'vendor/autoload.php';
+
+        header('Content-Type: application/json');
 
         $products_for_stripe = [];
         $YOUR_DOMAIN = 'http://127.0.0.1:80';
@@ -45,7 +47,7 @@ class StripeController extends AbstractController
                     'unit_amount' => $product->getPrice(),
                     'product_data' => [
                         'name' => $product->getProduct(),
-                        'images' => [$YOUR_DOMAIN."/img/".$product_object->getPicture()],
+                        'images' => [$YOUR_DOMAIN."/img/products/".$product_object->getPicture()],
                     ],
                 ],
             ];

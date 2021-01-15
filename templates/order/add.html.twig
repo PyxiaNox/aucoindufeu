@@ -35,7 +35,8 @@
                 {% for key,product in cart %}
                     <div class="row {% if key > 0 %}mt-2{% endif %}">
                         <div class="col-3">
-                            <img src="{{ asset('assets/img/products/' ~ product.product.picture ) }}" alt="{{ product.product.name }}" height="75px">
+                            <img src="{{ asset('assets/img/products/' ~ product.product.picture ) }}"
+                                 alt="{{ product.product.name }}" height="75px">
                         </div>
                         <div class="col-7 my-auto">
                             {{ product.product.name }}
@@ -53,7 +54,8 @@
                 <strong>Livraison : </strong>{{ (carrier.price/100)| number_format(2) }} €
                 <hr>
                 <strong>Total : </strong>{{ (total/100) + (carrier.price/100) }} €
-            <a id="checkout-button" class="btn btn-dark btn-block mt-3" style="color: #CFB53B" type="submit">Payer &middot; {{ (total/100) + (carrier.price/100)| number_format(2) }} €</a>
+            <a id="checkout-button" class="btn btn-dark btn-block mt-3" style="color: #CFB53B"
+               type="submit">Payer &middot; {{ (total/100) + (carrier.price/100)| number_format(2) }} €</a>
         </div>
     </div>
 
@@ -63,12 +65,12 @@
 <script type="text/javascript">
 
     // Create an instance of the Stripe object with your publishable API key
-    let stripe = Stripe("sk_test_51I5hozGLZeyScSWrjHhZMK9lp9aJJ4OEQv37Zd34afyLEGEI2lJTXte6CBLVoDapQFNySdYis0AIonnD99uXNAnK00ehroEGJG");
-    let checkoutButton = document.getElementById("checkout-button");
+        let stripe = Stripe("sk_test_51I5hozGLZeyScSWrjHhZMK9lp9aJJ4OEQv37Zd34afyLEGEI2lJTXte6CBLVoDapQFNySdYis0AIonnD99uXNAnK00ehroEGJG");
+        let checkoutButton = document.getElementById("checkout-button");
 
     checkoutButton.addEventListener("click", function () {
         fetch("{{ path('stripe_create_session', { 'reference' : reference}) }}", {
-            method: "POST",
+            method: "POST"
         })
             .then(function (response) {
                 return response.json();

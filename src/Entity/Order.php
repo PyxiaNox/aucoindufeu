@@ -76,7 +76,7 @@ class Order
         $total = null;
         foreach ($this->getOrderDetails()->getValues() as $product)
         {
-            $total;
+            $total = $total + ($product->getPrice());
         }
         return $total;
     }

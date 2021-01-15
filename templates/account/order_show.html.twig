@@ -48,7 +48,7 @@
     <div class="text-right">
         <strong>Sous-total : </strong>{{ (order.getTotal / 100)|number_format(2) }} €<br>
         <strong>Livraison : </strong>{{ (order.carrierPrice / 100)|number_format(2) }} €<br>
-        <strong>Total : </strong>{{ ((order.carrierPrice + order.getTotal / 100)|number_format(2) }} €
+        <strong>Total : </strong>{{ ((order.carrierPrice + order.getTotal) / 100)|number_format(2) }} €
     </div>
 
 {% endblock %}

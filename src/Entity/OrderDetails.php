@@ -34,6 +34,9 @@ class OrderDetails
      */
     private $price;
 
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
     private $total;
 
     public function __toString()
