@@ -26,7 +26,8 @@ class ContactController extends AbstractController
             $form->getData();
 
             $mail = new Mail();
-            $mail->send('andre.claudel.bouquiniste@gmail.com', 'Au Coin du Feu', 'Demande de contact', 'Vous avez reçu une nouvelle demande de contact.');
+            $mail->send('andre.claudel.bouquiniste@gmail.com', 'Au Coin du Feu', 'Demande de contact',
+                'Vous avez reçu une nouvelle demande de contact.');
         }
 
         return $this->render('contact/index.html.twig', [
