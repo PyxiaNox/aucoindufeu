@@ -36,7 +36,7 @@ class ResetPasswordType extends AbstractType
                 'label' => 'Mettre à jour',
                 'attr' => [
                     'class' => 'btn btn-dark btn-block',
-                    'style' => 'color : #CFB53B'
+                    'style' => 'color : #CFB53B',
                 ]
             ])
         ;

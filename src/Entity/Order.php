@@ -16,7 +16,7 @@ class Order
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\Column(name="id", type="integer")
      */
     private $id;
 
@@ -74,6 +74,7 @@ class Order
     public function getTotal(): ?float
     {
         $total = null;
+
         foreach ($this->getOrderDetails()->getValues() as $product)
         {
             $total = $total + ($product->getPrice());
@@ -84,6 +85,13 @@ class Order
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function setId(int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     public function getUser(): ?User
