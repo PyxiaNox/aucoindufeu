@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="E-commerce d'un bouquiniste">
         <meta name="author" content="Kathleen Dubarle">
-        <meta name="keywords" content="">
+        <meta name="keywords" content="bouquinerie, bouquiniste, expertise, livre, livres">
         <meta name="robots" content="index, follow">
 
         <title>{% block title %}Au Coin du Feu{% endblock %}</title>
@@ -65,11 +65,13 @@
                         {% if app.user %}
                             <a href="{{ path('account') }}" style="color: #CFB53B">
                                 <strong>Mon compte <small>({{ app.user.firstname }})</small></strong></a>
-                            <a href="{{ path('app_logout') }}" style="color: #CFB53B">&middot; <strong>Déconnexion</strong></a>
+                            <a href="{{ path('app_logout') }}" style="color: #CFB53B">&middot;
+                                <strong>Déconnexion</strong></a>
                         {% else %}
                             <a href="{{ path('app_login') }}" style="color: #CFB53B">
-                                <strong>Connexion</strong></a> &middot; <a href="{{ path('register') }}" style="color: #CFB53B">
-                            <strong>Inscription</strong></a>
+                                <strong>Connexion</strong></a> &middot;
+                            <a href="{{ path('register') }}" style="color: #CFB53B">
+                                <strong>Inscription</strong></a>
                         {% endif %}
                     </div>
                     <a href="{{ path('cart') }}">
