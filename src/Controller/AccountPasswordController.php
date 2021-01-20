@@ -12,6 +12,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AccountPasswordController extends AbstractController
 {
+    // initialiser la variable pour le manager de Doctrine
     private $entityManager;
 
     public function __construct(EntityManagerInterface $entityManager){

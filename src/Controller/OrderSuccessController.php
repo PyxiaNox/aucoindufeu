@@ -12,10 +12,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class OrderSuccessController extends AbstractController
 {
+    // initialiser la variable pour le manager de Doctrine
     private $entityManager;
 
+    // injection de la dépendance EntityManagerInterface
     public function __construct(EntityManagerInterface $entityManager)
     {
+        // instancier la variable entityManager
         $this->entityManager = $entityManager;
     }
 

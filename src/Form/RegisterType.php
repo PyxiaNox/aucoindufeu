@@ -17,6 +17,7 @@ use function Sodium\add;
 
 class RegisterType extends AbstractType
 {
+    // créer un formulaire
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -50,9 +51,10 @@ class RegisterType extends AbstractType
                     'placeholder' => 'Renseignez votre adresse mail'
                 ]
             ])
+            // RepeatedType pour dire à Symfony que pour deux champs différents, je souhaite le même contenu
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
-                'invalid_message' => 'Le mot de passe et sa confirmation doivent être identiques',
+                'invalid_message' => 'Le mot de passe et sa confirmation doivent être identiques.',
                 'label' => 'Mot de passe',
                 'required' => true,
                 'first_options' => [

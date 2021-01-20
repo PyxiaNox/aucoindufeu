@@ -14,26 +14,35 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class RegisterController extends AbstractController
 {
+    // initialiser la variable pour le manager de Doctrine
     private $entityManager;
 
+    // injection de la dépendance EntityManagerInterface
     public function __construct(EntityManagerInterface $entityManager){
+        // instancier la variable entityManager
         $this->entityManager = $entityManager;
     }
 
     /**
      * @Route("/inscription", name="register")
      */
+    // injecter la dépendance request + cryptage de mots de passe (voir security.yaml)
     public function index(Request $request, UserPasswordEncoderInterface $encoder): Response
     {
         $notification = null;
 
+        // instancier la classe User
         $user = new User();
+        // instancier le formulaire, méthode createForm avec sa classe RegisterType et la variable pour les données $user
         $form = $this->createForm(RegisterType::class, $user);
 
+        // écouter la requête pour savoir si j'ai un POST
         $form->handleRequest($request);
 
+        // formulaire soumis et valide ? par rapport aux contraintes du formulaire
         if ($form->isSubmitted() && $form->isValid()){
 
+            // récupérer toutes les données du formulaire
             $user = $form->getData();
 
             $email = $user->getEmail();
@@ -41,11 +50,15 @@ class RegisterController extends AbstractController
 
             if (!$search_mail)
             {
+                // stockage du mot de passe crypté
                 $password = $encoder->encodePassword($user, $user->getPassword());
 
+                // injection dans l'objet user
                 $user->setPassword($password);
 
+                // figer la data pour l'enregistrer
                 $this->entityManager->persist($user);
+                // exécuter la persistance
                 $this->entityManager->flush();
 
                 $mail = new Mail();

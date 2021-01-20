@@ -13,6 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AccountAdressController extends AbstractController
 {
+    // initialiser la variable pour le manager de Doctrine
     private $entityManager;
 
     public function __construct(EntityManagerInterface $entityManager)

@@ -36,6 +36,7 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linktoDashboard('Tableau de bord', 'fa fa-home');
+        // initialiser une catégorie pour les utilisateurs avec la classe User pour le CRUD avec make:crud
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', User::class);
         yield MenuItem::linkToCrud('Commandes', 'fas fa-shopping-basket', Order::class);
         yield MenuItem::linkToCrud('Catégories', 'fas fa-list', Category::class);
